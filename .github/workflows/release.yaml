@@ -50,11 +50,11 @@ jobs:
               certUtil -hashfile $ZIP_FILE_NAME SHA256 | findstr /i /v "SHA256" | findstr /i /v "CertUtil" > $CHECKSUM_FILE_NAME_PASH
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.PYTHON_VERSION }}
+      - uses: actions/setup-python@v4
+        #with:
+        #  python-version: ${{ matrix.PYTHON_VERSION }}
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
