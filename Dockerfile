@@ -1,5 +1,5 @@
 # `python-base` sets up all our shared environment variables
-FROM python:3.8.12-slim as python-base
+FROM python:3.10-slim as python-base
 
     # python
 ENV PYTHONUNBUFFERED=1 \
@@ -44,7 +44,7 @@ RUN apt-get update \
         build-essential
 
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+RUN curl -sSL https://install.python-poetry.org | python -
 
 # copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
